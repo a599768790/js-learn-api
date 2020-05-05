@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>function</title>
+
+</head>
+
+<body>
+  <button>houdunren.com</button>
+  <button>hdcms.com</button>
+
+
+</body>
+<script>
+  // ----------------------------------------------
+  // let edu = {
+  //   name: "后盾人",
+  //   show: function () {
+  //     console.log(this)
+  //     return this.name;
+  //   }
+  // }
+
+  // console.log(edu.show())
+
+
+  // 普通函数和箭头函数的区别  // 类方法的this指向当前对象
+  // 普通函数不会向上找，需要重新定义一个变量，普通函数的this指向window
+  // 同时用到了闭包概念，self可以作用于父级作用域
+  // let Lesson = {
+  //   site: "后盾人",
+  //   lists: ["js", "css", "mysql"],
+  //   show: function () {
+  //     const self = this;
+  //     return this.lists.map(value => {
+  //       // console.log(self)
+  //       return `${self.site}-${value}`;
+  //     })
+  //   }
+  // }
+  // console.table(Lesson.show())
+
+
+  // 箭头函数表达式里的this会向上一级找this
+  // let Lesson = {
+  //   site: "后盾人",
+  //   lists: ["js", "css", "mysql"],
+  //   show: function () {
+  //     // const self = this;
+  //     return this.lists.map(value => {
+  //       // console.log(this)
+  //       return `${this.site}-${value}`;
+  //     })
+  //   }
+  // }
+  // console.table(Lesson.show())
+
+
+
+  // ----------------------------------------------
+  // 多层函数用箭头函数向上找this
+  // let edu = {
+  //   site: "后盾人",
+  //   bind: function () {
+  //     let buttons = document.querySelectorAll("button")
+  //     console.log(buttons)
+  //     buttons.forEach(elem => {
+  //       elem.addEventListener("click", event => {
+  //         // console.log(event.target);
+  //         console.log(`${this.site}${event.target.innerHTML}`)
+
+  //       })
+  //     })
+
+  //   }
+  // }
+  // console.log(edu.bind())
+
+
+
+
+
+
+</script>
+
+</html>

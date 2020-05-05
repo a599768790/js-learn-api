@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>function</title>
+
+</head>
+
+<body>
+
+  <dt>后盾人</dt>
+  <dd>1</dd>
+  <dt>hdcms</dt>
+  <dd hidden="hidden">2</dd>
+  <!-- <button>hdcms.com</button>
+  <button>houdunren.com</button> -->
+
+
+</body>
+<script>
+
+
+  // 当构造函数没用到this，call第一个参数就不需要传,传null
+  // function panel(i) {
+  //   let dds = document.querySelectorAll("dd")
+  //   // console.log(dds);
+  //   dds.forEach(dd => {
+  //     dd.setAttribute("hidden", "hidden");
+  //     dds[i].removeAttribute("hidden");
+  //   })
+  // }
+
+  // document.querySelectorAll("dt").forEach((dt, i) => {
+  //   dt.addEventListener("click", () => {
+  //     panel.call(null, i)
+
+  //     console.log(i)
+  //     // let dds = document.querySelectorAll("dd")
+  //     // // 箭头函数一个参数，可以不加括号
+  //     // dds.forEach(dd => {
+  //     //   dd.setAttribute("hidden", "hidden");
+  //     //   dds[i].removeAttribute("hidden");
+  //     // })
+
+  //   })
+  // });
+
+
+
+  function Color(elem) {
+    this.elem = elem;
+    this.colors = ['#1abc9c', '#f1c40f', '#9b59b6', '#f39c12'];
+    this.run = function () {
+      setInterval(function () {
+        let i = Math.floor(Math.random() * this.colors.length);
+        console.log(i);
+        this.elem.style.backgroundColor = this.colors[i];
+      }.bind(this), 1000)
+    }
+  }
+
+  let obj = new Color(document.body)
+  obj.run();
+</script>
+
+</html>
