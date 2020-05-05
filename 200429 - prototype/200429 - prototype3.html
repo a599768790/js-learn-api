@@ -1,0 +1,45 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>原型链</title>
+</head>
+<body>
+
+</body>
+<script>
+
+function Parent(){
+
+}
+
+Parent.prototype.name = function(){
+  console.log("parent.name")
+}
+Parent.prototype.site = function(){
+  return "后盾人..."
+}
+
+function Child(){
+  // Child设置长辈为Parent 继承
+  Child.prototype.__proto__ = Parent.prototype;
+  Child.prototype.role = function(){
+    console.log("child.role")
+  }
+  // 继承父亲方法，重写
+  Child.prototype.show = function(){
+    console.log(Parent.prototype.site() + "houdunren")
+  }
+}
+
+
+let child = new Child();
+
+// child.name();
+child.show()
+console.dir(Parent)
+console.dir(Child)
+
+
+
+</script>
+</html>

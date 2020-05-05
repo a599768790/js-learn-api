@@ -1,0 +1,79 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>闭包</title>
+</head>
+<body>
+  <button>按钮1</button>
+  <button>按钮2</button>
+</body>
+<script>
+// -----------------------------------------------------
+// 基础：
+
+// function init() {
+//     var name = "Chrome";    //创建局部变量name和局部函数alertName
+//     // return 方法相当于return alert(name)
+//     return function alertName() { //alertName()是函数内部方法，是一个闭包
+//         alert(name); //使用了外部函数声明的变量，内部函数可以访问外部函数的变量
+//     }
+//     // alertName();
+// }
+// init();
+
+
+// ------------------------------------------------------
+
+  // function hd(){
+  //   let n =1;
+  //   return function show(){
+  //     console.log(++n);
+  //   }
+
+  //   // sum();
+  // }
+  // let a = hd();
+  // 需要在调用才可以
+  // a();
+  // a();
+
+
+// ------------------------------------------------------
+
+// 闭包和匿名函数
+// function parent(x){
+//     return function (y){
+//         return x + y;
+//     };
+// }
+
+// var addFun1 = parent(4);
+// var addFun2 = parent(9);
+
+// console.log(addFun1(2)); //6
+// console.log(addFun2(2));  //11
+
+
+
+  // ----------------------------------------------------------
+
+  // 1、 between a b 创建
+  // 2、 子函数创建8个 v （闭包特性：可以访问到父级作用域的数据a和b）
+  // 3、 判断8次
+
+  // let arr = [1,23,4,5,67,8,90,11]
+  // function between(a,b){
+  //   return function(v){
+  //     return v >= a && v <= b;
+  //   }
+  // }
+  // console.table(arr.filter(between(3,9)))
+
+
+
+  
+
+
+
+</script>
+</html>
