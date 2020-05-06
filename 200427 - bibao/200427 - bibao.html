@@ -1,69 +1,84 @@
 <html>
   <head>
-  <meta charset="utf-8">
-  <title>闭包</title>
-</head>
-<body>
-  <button>按钮1</button>
-  <button>按钮2</button>
-</body>
-<script>
+    <meta charset="utf-8" />
+    <title>闭包</title>
+  </head>
+  <body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+  </body>
+  <script>
+    // ------------------------------------------------------
+    // 闭包概念：内部函数可以访问外部函数的变量
+    // function hd() {
+    //   let n = 1;
+    //   return function show() {
+    //     console.log(++n);
+    //   };
+    // }
+    // let a = hd();
 
-  // let title = '后盾网';
-  // function hd(){
-  //   let n =1;
-  //   return function show(){
-  //     console.log(++n);
-  //   }
+    // // a 等价于 show(){console.log(++n);}  // 需要在调用才可以
+    // a();
+    // a();
 
-  //   // sum();
-  // }
-  // let a = hd();
-  // a();
-  // a();
+    // -----------------------------------------------------
+    // 要么return然后init()(); 不加return函数，自己执行一次，然后init()
+    // 等价于👆面
+    // function init() {
+    //   var name = "Chrome"; //创建局部变量name和局部函数alertName
+    //   function alertName() {
+    //     console.log(name); //使用了外部函数声明的变量，内部函数可以访问外部函数的变量
+    //   }
+    //   alertName();
+    // }
+    // init();
 
-  // ----------------------------------------------------------
+    // ------------------------------------------------------
+    // 闭包和匿名函数
+    // function parent(x){
+    //     return function (y){
+    //         return x + y;
+    //     };
+    // }
 
-  // 1、 between a b 创建
-  // 2、 子函数创建8个 v （闭包特性：可以访问到父级作用域的数据a和b）
-  // 3、 判断8次
+    // var addFun1 = parent(4);
+    // var addFun2 = parent(9);
 
-  // let arr = [1,23,4,5,67,8,90,11]
-  // function between(a,b){
-  //   return function(v){
-  //     return v >= a && v <= b;
-  //   }
-  // }
-  // console.table(arr.filter(between(3,9)))
+    // console.log(addFun1(2)); //6
+    // console.log(addFun2(2));  //11
 
+    // ----------------------------------------------------------
+    // 闭包和匿名函数案例1
+    // 1、 between a b 创建
+    // 2、 子函数创建8个 v （闭包特性：可以访问到父级作用域的数据a和b）
+    // 3、 判断8次
 
-  // -----------------------------------------------------
+    // let arr = [1,23,4,5,67,8,90,11]
+    // function between(a,b){
+    //   return function(v){
+    //     return v >= a && v <= b;
+    //   }
+    // }
+    // console.table(arr.filter(between(3,9)))
 
-  let btns = document.querySelectorAll('button');
-  btns.forEach(function(item){
-    // console.log(item)
-    let left = 1;
-    let interval = false;
-    item.addEventListener("click",function(){
-      if(!interval){
-        interval = true;
-        setInterval(function(){
-        // item.style.left = left++ + "px";
-        // let move = left++
-          console.log(left++);
-        },1000)
-      }
+    // 案例2
+    // let btns = document.querySelectorAll('button');
+    // btns.forEach(function(item){
+    //   // console.log(item)
+    //   let left = 1;
+    //   let interval = false;
+    //   item.addEventListener("click",function(){
+    //     if(!interval){
+    //       interval = true;
+    //       setInterval(function(){
+    //       // item.style.left = left++ + "px";
+    //       // let move = left++
+    //         console.log(left++);
+    //       },1000)
+    //     }
 
-
-
-    })
-  })
-
-
-
-  
-
-
-
-</script>
+    //   })
+    // })
+  </script>
 </html>

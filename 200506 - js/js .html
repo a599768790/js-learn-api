@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>js</title>
+  </head>
+
+  <body>
+    <!-- <button>houdunren.com</button>
+  <button>hdcms.com</button> -->
+  </body>
+  <script>
+    // run是一个闭包,所以可以访问外部web
+    let web = "houdunren.com";
+    function show() {
+      var web = "后盾人";
+      console.log(web);
+      function run() {
+        // let web = "run --- 后盾人";
+        console.log(web + "run");
+      }
+      run();
+    }
+    show();
+    console.log(web);
+
+    // js基础类型有6种
+    // string，number，Boolean，null，undefined，symbol
+    // js引用类型
+    // object、Array、RegExp、Date、Function
+  </script>
+</html>
