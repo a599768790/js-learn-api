@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>流程控制</title>
+  </head>
+
+  <body>
+    <input type="text" name="password" />
+    <input type="text" name="confirm_password" />
+  </body>
+  <script>
+    // inputs的原型不是array而是NodeList所以不能使用map
+    // let inputs = document.querySelectorAll("input");
+    // // console.log(inputs);
+    // inputs.forEach((item) => {
+    //   item.addEventListener("keyup", function () {
+    //     console.log(document.querySelector("[name='password']").value);
+    //   });
+    // });
+
+    // ----------------------------------------------------
+    // ++n 先算n的表达式 ; ++n 后算n的表达式
+    // let n = 1;
+    // let f = 2;
+    // // let s1 = f + ++n;
+    // // console.log(s1);
+    // let s2 = f + n++;
+    // console.log(s2);
+
+    // ----------------------------------------------------
+    // 短路运算 前者false走后者,前者满足短路停止
+    // let sex = prompt("请输入必须") || "保密";
+    // // console.log(sex);
+    // // 短路案例2
+    // function star(num = "" || 5) {
+    //   return "*".repeat(num);
+    // }
+    // console.log(star(2));
+
+    // ------------------------------------------
+    // switch判断，没有break会一直往下走
+    // let error = "notice";
+    // switch (error) {
+    //   case "notice":
+    //     console.log("通知信息");
+    //     break;
+    //   case "warning":
+    //     console.log("警告信息");
+    //     break;
+    //   default:
+    //     console.log("其他信息");
+    // }
+  </script>
+</html>

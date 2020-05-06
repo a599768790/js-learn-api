@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>流程控制</title>
+  </head>
+
+  <body></body>
+  <script>
+    // while循环
+    // document.write(`<table border=1 width=100%>`);
+    // let tr = 5;
+    // while (tr-- != 0) {
+    //   let td = 3;
+    //   document.write(`<tr>`);
+    //   while (td-- != 0) {
+    //     document.write(`<td>${td}</td>`);
+    //   }
+    //   document.write(`</tr>`);
+    // }
+    // document.write(`</table>`);
+
+    // ------------------------------------------------
+    // for循环
+    // for (let i = 0; i < 10; i++) {
+    //   for (let n = 0; n < i; n++) {
+    //     document.write("*");
+    //   }
+    //   document.write("</br>");
+    // }
+
+    // ------------------------------------------------
+    // for和continue
+    // for (let i = 1; i <= 10; i++) {
+    //   // 如果true则跳出当次循环
+    //   if (i % 2) continue;
+    //   console.log(i);
+    // }
+
+    // for in遍历对象
+
+    // let hd = {
+    //   title: "体育",
+    //   click: 100,
+    // };
+
+    // for (let i in hd) {
+    //   console.log(i);
+    // }
+
+    // 便利数组
+    let lessons = [
+      {
+        title: "语文",
+        click: 30,
+      },
+      {
+        title: "数学",
+        click: 55,
+      },
+      {
+        title: "英语",
+        click: 90,
+      },
+      {
+        title: "体育",
+        click: 100,
+      },
+    ];
+
+    for (v of lessons) {
+      console.log(v);
+    }
+  </script>
+</html>
