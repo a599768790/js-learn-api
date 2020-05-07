@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Array</title>
+  </head>
+
+  <body>
+    <div>houdunren.com</div>
+    <div>hdcms.com</div>
+  </body>
+  <script>
+    // ------------------------------------
+    // ------------------------------------
+    // ...语法
+    // let arr = ["hdcmd", "houdunren"];
+    // let hd = ["js", "css"];
+    // // arr = [...arr, ...hd];
+    // // console.log(arr);
+    // arr.push(...hd);
+    // console.log(arr);
+
+    // ------------------------------------
+    // ------------------------------------
+    // 数组的解构和...展开语法
+    // let [name, ...args] = ["后盾人", "houdunren.com", 2010];
+    // console.log(args);
+
+    //// [...args] 相当于 ["后盾人", 2010]
+    // function show([...args]) {
+    //   console.log(args);
+    // }
+    // show(["后盾人", 2010]);
+
+    // ------------------------------------------
+    // ------------------------------------------
+    // ...语法 使NodeList变成Array可以使用map
+    // let divs = document.querySelectorAll("div");
+    // [...divs].map((item) => {
+    //   item.addEventListener("click", (event) => {
+    //     console.log(event.target.innerHTML);
+    //   });
+    // });
+
+    // 原型链和call使用
+    // let divs = document.querySelectorAll("div");
+    // Array.prototype.map.call(divs, function (item) {
+    //   console.log(item);
+    // });
+  </script>
+</html>
