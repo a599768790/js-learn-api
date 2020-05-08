@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Array</title>
+  </head>
+
+  <body>
+    <div>houdunren.com</div>
+    <div>hdcms.com</div>
+  </body>
+  <script>
+    // -----------------------------------
+    // -----------------------------------
+    // 清空数组
+    // let hd = [1, 2, 3, 4, 5];
+    // let arr = hd;
+    // // hd = [];
+    // hd.length = 0;
+    // console.log(hd);
+    // console.log(arr);
+
+    // ------------------------------------
+    // ------------------------------------
+    // 数组首尾增删
+    // let arr = ["hdcms", "houdunren"];
+    // arr.unshift("压进去到第一个");
+    // console.log(arr);
+    // arr.shift();
+    // console.log(arr); // 弹出第一个
+    // arr.push("压到最后一个");
+    // console.log(arr);
+    // arr.pop(); //弹出最后一个
+    // console.log(arr);
+
+    // 从中间增删改
+    // let arr = [1, 2, 3, 4, 5];
+    // let hd = arr.splice(0, 2); // 从第0个截取2个
+    // console.log(hd);
+    // let arr = [1, 2, 3, 4, 5];
+    // arr.splice(0, 3, "替换原来的1", "替换原来的2");
+    // console.log(arr);
+
+    // ------------------------------------
+    // ------------------------------------
+    // 合并
+    // let arr = ["hdcmd", "houdunren"];
+    // let hd = [1, 2, 3, 4];
+    // // arr = arr.concat(hd);
+    // arr = [...arr, ...hd];
+    // console.log(arr);
+
+    // --------------------------------------
+    // --------------------------------------
+    // 查找
+    // let arr = [1, 2, 34, 5, 6, 7];
+    // console.log(arr.includes(1)); // 打印 true或者false
+
+    let lessons = [
+      {
+        title: "语文",
+        click: 30,
+      },
+      {
+        title: "数学",
+        click: 55,
+      },
+      {
+        title: "英语",
+        click: 90,
+      },
+      {
+        title: "体育",
+        click: 100,
+      },
+    ];
+    // 查找数组对象返回值 //和filter一样
+    // let result = lessons.find((item) => {
+    //   return item.title == "语文";
+    // });
+    // console.log(result);
+
+    // find和filter实现原理
+    // function find(array, callback) {
+    //   for (let item of array) {
+    //     if (callback(item)) {
+    //       return item;
+    //     }
+    //   }
+    //   return undefined;
+    // }
+    // let a = find(lessons, function (item) {
+    //   return item.title == "体育";
+    // });
+    // console.log(a);
+
+    // this表示lessons，谁调用表示谁
+    // Array.prototype.findValue = function (callback) {
+    //   for (let item of this) {
+    //     if (callback(item)) {
+    //       return item;
+    //     }
+    //   }
+    //   return undefined;
+    // };
+
+    // let a = lessons.findValue((item) => {
+    //   return item.title == "体育";
+    // });
+    // console.log(a);
+
+    // 查找数组对象返回索引
+    // let index = lessons.findIndex((item) => {
+    //   return item.title == "体育";
+    // });
+    // console.log(index);
+
+    // 排序
+    // let arr = [1, 2, 4, 5, 55, 67, 7, 8];
+    // // arr = arr.sort((a, b) => a - b); //从小到大
+    // arr = arr.sort((a, b) => b - a); //从大到小
+    // console.log(arr);
+
+    // 排序实现原理
+    // let arr = [1, 2, 4, 5, 55, 67, 7, 8];
+    // function sort(arr) {
+    //   for (let m of arr) {
+    //     for (let n of arr) {
+    //       if (m < n) {
+    //         const temp = n;
+    //         n = m;
+    //         m = temp;
+    //       }
+    //     }
+    //   }
+    //   return arr;
+    // }
+    // sort(arr);
+  </script>
+</html>
