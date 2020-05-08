@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Array</title>
+  </head>
+
+  <body>
+    <div>houdunren.com</div>
+    <div>hdcms.com</div>
+  </body>
+  <script>
+    // --------------------------------------------
+    // 引用类型数组会改变原来的数组
+    // --------------------------------------------
+    // let lessons = [
+    //   { title: "媒体查询响应式布局", catagory: "css" },
+    //   { title: "FLEX 弹性盒模型", catagory: "css" },
+    //   { title: "MYSQL多表查询随意操作", catagory: "mysql" },
+    // ];
+
+    // lessons.forEach(function (item) {
+    //   item.catagory += "后盾人1";
+    // });
+    // 同理
+    // for (let item of lessons) {
+    //   item.catagory += "后盾人2";
+    // }
+    //console.table(lessons);
+
+    // 值类型数组不会改变原来的数组
+    // let arr = [1, 2, 3, 4];
+    // for (let value of arr) {
+    //   value += 10;
+    // }
+    // console.table(arr);
+
+    // ----------------------------------------
+    // 迭代器
+    // ----------------------------------------
+    // let arr = ["hdcms", "houdunren"];
+    // let keys = arr.entries();
+    // let {
+    //   value: [a, b],
+    //   done,
+    // } = keys.next();
+    // console.log(a, b, done);
+    // 等价于
+    // for (const [value, key] of arr.entries()) {
+    //   console.log(value, key);
+    // }
+
+    // ----------------------------------------
+    // every(全部为true才为true)和some(1个为true即为true)
+    // 返回true和false
+    // ----------------------------------------
+    // let user = [
+    //   { name: "李四", js: 89 },
+    //   { name: "张三", js: 99 },
+    //   { name: "马六", js: 80 },
+    // ];
+    // // let status = user.every(function (item) {
+    // //   return item.js >= 60;
+    // // });
+    // // console.log(status ? "全部及格了" : "有人挂科了");
+
+    // let status = user.some(function (item) {
+    //   return item.js >= 60;
+    // });
+    // console.log(status ? "有人通过了" : "没有一个通过");
+
+    // ----------------------------------------
+    // filter过滤和原理
+    // ----------------------------------------
+    // let lessons = [
+    //   { title: "媒体查询响应式布局", catagory: "css" },
+    //   { title: "FLEX 弹性盒模型", catagory: "css" },
+    //   { title: "MYSQL多表查询随意操作", catagory: "mysql" },
+    // ];
+    // let arr = lessons.filter(function (item) {
+    //   return item.catagory == "css";
+    // });
+    // console.table(arr);
+
+    // ----------------------------------------
+    // filter封装
+    // ----------------------------------------
+    // let hd = [1, 2, 3, 4];
+    // function filter(array, except) {
+    //   let newArray = [];
+    //   for (const value of array) {
+    //     if (except.includes(value) === false) {
+    //       newArray.push(value);
+    //     }
+    //   }
+    //   return newArray;
+    // }
+    // console.log(filter(hd, [2, 3]));
+
+    // ----------------------------------------
+    // filter封装
+    // ----------------------------------------
+    // let hd = [1, 2, 3, 4];
+    // function filter(array, callback) {
+    //   let newArray = [];
+    //   for (const value of array) {
+    //     if (callback(value) === true) {
+    //       newArray.push(value);
+    //     }
+    //   }
+    //   return newArray;
+    // }
+
+    // let arr = filter(hd, function (value) {
+    //   return value > 2;
+    // });
+    // console.log(arr);
+    // let arr = hd.filter(function (item) {
+    //   return item > 2;
+    // });
+    // console.log(arr);
+
+    // --------------------------------
+    // 浅拷贝
+    // --------------------------------
+    // let lessons = [
+    //   { title: "媒体查询响应式布局", catagory: "css" },
+    //   { title: "FLEX 弹性盒模型", catagory: "css" },
+    //   { title: "MYSQL多表查询随意操作", catagory: "mysql" },
+    // ];
+    // // let hd = lessons.map(function (item) {
+    // //   return {
+    // //     title: item.title,
+    // //     catagory: item.catagory,
+    // //     click: 100,
+    // //   };
+    // // });
+    // // console.table(hd);
+    // console.table(hd);
+    // console.table(lessons);
+  </script>
+</html>
