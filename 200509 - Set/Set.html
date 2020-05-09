@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Set</title>
+    <style>
+      body {
+        padding: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" name="hd" />
+    <ul></ul>
+  </body>
+  <script>
+    // set集合
+    // let set = new Set(["hdcms", "houdunren"]);
+    // console.log(set.size);
+    // console.log(set.has("hdcms"));
+    // console.log(set.add("cba"));
+    // console.log(set);
+
+    // ---------------------
+    // Set和Array之间相互转换
+    // set转数组进行过滤
+    // ---------------------
+    // let hd = new Set("123456789");
+    // // console.log(hd.size);
+    // let arr = [...hd].filter((value) => value < 5);
+    // console.log(new Set(arr));
+
+    // ---------------------
+    // ---------------------
+    // 数组转Set进行去重，再转回数组
+    //   let array = [1, 2, 3, 5, 6, 3, 2, 5, 7, 8];
+    //   let hd = [...new Set(array)];
+    //   console.log(hd);
+
+    // let hd = new Set("1set3456789");
+    // hd.forEach((value, index) => {
+    //   console.log(value, index);
+    // });
+
+    // ---------------------------------
+    // set案例搜索关键词
+    // ---------------------------------
+    // let obj = {
+    //   data: new Set(),
+    //   keyword(word) {
+    //     this.data.add(word);
+    //   },
+    //   show() {
+    //     let ul = document.querySelector("ul");
+    //     ul.innerHTML = "";
+    //     this.data.forEach(function (value) {
+    //       ul.innerHTML += `<li>${value}</li>`;
+    //     });
+    //   },
+    // };
+    // let input = document.querySelector("input");
+    // input.addEventListener("blur", function () {
+    //   obj.keyword(this.value);
+    //   obj.show();
+    // });
+
+    // set处理并集、交集、差集
+    // -----------------------
+    // 交集
+    let a = new Set([1, 2, 3, 45, 67, 8]);
+    let b = new Set([2, 3, 5, 6, 81, 2, 4, 1]);
+    // console.log(new Set([...a, ...b]));
+
+    // 交集
+    // let jiaoji = new Set(
+    //   [...a].filter((value) => {
+    //     return b.has(value);
+    //   })
+    // );
+    // console.log(jiaoji);
+
+    // 差集
+    // let chaji = new Set(
+    //   [...a].filter((value) => {
+    //     return !b.has(value);
+    //   })
+    // );
+    // console.log(chaji);
+  </script>
+</html>
