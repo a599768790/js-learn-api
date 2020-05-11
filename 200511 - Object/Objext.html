@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Objext</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    // let user = {
+    //   name: "向军",
+    //   grade: [
+    //     { name: "js", score: 99 },
+    //     { name: "docker", score: 76 },
+    //   ],
+    //   average() {
+    //     let total = this.grade.reduce((t, item) => t + item.score, 0);
+    //     return `${this.name}的平均成绩是：${total / this.grade.length}`;
+    //   },
+    // };
+    // console.log(user.average());
+
+    // 获取object的key
+    // let user = {
+    //   name: "向军",
+    // };
+    // user.age = 18;
+    // user.get = function () {
+    //   return `${this.name}的年龄是${this.age}`;
+    // };
+    // console.log(user.get());
+    // // 获取属性和值
+    // // for (let key in user) {
+    // //   console.log(key);
+    // //   console.log(user[key]);
+    // // }
+
+    // ----------------------------------
+    // 对象展开语法类似数组展开语法
+    // ----------------------------------
+    // let arr = [1, 2, 3];
+    // let a = [...arr, 4, 5, 6];
+    // console.log(a);
+    // let user = { name: "向军", age: 22 };
+    // let hd = { ...user, lang: "zh" };
+    // console.log(hd);
+
+    // 展开覆盖
+    // function uplaod(params) {
+    //   let config = {
+    //     type: "*jpg,*png",
+    //     size: 10000,
+    //   };
+    //   config = { ...config, ...params };
+    //   console.log(config);
+    // }
+    // uplaod({ size: 999 });
+
+    // -----------------------------------
+    // 解构赋值
+    // -----------------------------------
+    // let user = { name: "后盾人", age: 18 };
+    // let { name, age } = user;
+    // 标准写法易懂
+    // let { name: name2, age: age2 } = user;
+    // console.log(name2);
+
+    // 函数返回解构
+    // function hd() {
+    //   return { name: "后盾人", age: 18 };
+    // }
+    // let { name, age } = hd();
+    // console.log(name, age);
+
+    // 解构获取已有对象的属性或方法
+    // let user = {
+    //   get: function () {
+    //     console.log("getget");
+    //   },
+    // };
+    // // console.log(user);
+    // let { get: get222 } = user;
+    // get222();
+
+    // 变量解构 // key和value一样可以简写
+    // let name = "后盾人";
+    // let url = "houdunren.com";
+    // let opt = { name2: name, url2: url };
+    // console.log(opt);
+
+    // 多层对象解构
+    // let hd = {
+    //   name: "后盾人",
+    //   lesson: {
+    //     title: "javascript",
+    //   },
+    // };
+    // // let { name, lesson } = hd;
+    // // console.log(lesson.title);
+    // let {
+    //   name,
+    //   lesson: { title },
+    // } = hd;
+    // console.log(title);
+
+    // -------------------------------
+    // 默认值
+    // -------------------------------
+    // let user = { name: "后盾人" };
+    // let { name, title = "默认" } = user;
+    // console.log(title);
+    // // -------------------------------
+    // function createEl(options) {
+    //   let { width = 200, height = 100, background = "red" } = options;
+    //   const div = document.createElement("div");
+    //   div.style.width = width + "px";
+    //   div.style.height = height + "px";
+    //   div.style.backgroundColor = background;
+    //   document.body.appendChild(div);
+    // }
+    // createEl({ width: 100 });
+
+    // 部分解构
+    // function hd(name, { sex, age }) {
+    //   console.log(name, sex, age);
+    // }
+    // hd("向军", { sex: "男", age: 18 });
+  </script>
+</html>
