@@ -18,23 +18,108 @@
 
     // 使用闭包，让属性值不被篡改
     //
-    function User(name, age) {
-      let data = { name, age };
-      // let是一个属性
-      let info = function () {
-        return data.age > 50 ? "老年" : "青年";
-      };
-      // 闭包可访问不同函数作用于的变量
+    // function User(name, age) {
+    //   let data = { name, age };
+    //   // let是一个属性
+    //   let info = function () {
+    //     return data.age > 50 ? "老年" : "青年";
+    //   };
+    //   // 闭包可访问不同函数作用于的变量
 
-      this.show = function () {
-        console.log(data.name + info());
-      };
-    }
-    let xj = new User("向军", 55);
+    //   this.show = function () {
+    //     console.log(data.name + info());
+    //   };
+    // }
+    // let xj = new User("向军", 55);
     // xj.name = "后盾人";
     // xj.info = function () {
     //   return "aa";
     // };
     // xj.show();
+
+    // 定义对象属性配置
+    // let user = {
+    //   age: 18,
+    // };
+    // Object.defineProperty(user, "name", {
+    //   value: "后盾人",
+    //   writable: false,
+    //   enumerable: false,
+    // });
+    // user.name = "changed";
+    // console.log(user);
+
+    // 使用访问器保护数据
+    //
+    // const user = {
+    //   data: { name: "后盾人", age: 18 },
+    //   set age(value) {
+    //     if (typeof value != "number" || value < 10 || value > 100) {
+    //       throw new Error("年龄格式错误");
+    //     }
+    //     this.data.age = value;
+    //   },
+    //   get age() {
+    //     // console.log("执行get...");
+    //     return `${this.data.age}岁`;
+    //   },
+    // };
+    // user.age = 87; // 执行set age
+    // console.log(user.age); // 执行get age
+
+    // ----------------------------
+    // 访问器伪造属性，保护属性
+    // ----------------------------
+    // let lesson = {
+    //   lists: [
+    //     { name: "js", price: 100 },
+    //     { name: "mysql", price: 212 },
+    //     { name: "vue.js", price: 96 },
+    //   ],
+    //   get total() {
+    //     return this.lists.reduce((total, cur) => total + cur.price, 0);
+    //   },
+    // };
+    // console.log(lesson.total);
+    // lesson.total = 8222;
+    // console.log(lesson.total);
+
+    // 访问器设置属性
+    // let web = {
+    //   name: "后盾人",
+    //   url: "houdunren.com",
+    //   get site() {
+    //     return `${this.name}的网址是${this.url}`;
+    //   },
+    //   set site(value) {
+    //     [this.name, this.url] = value.split(",");
+    //   },
+    // };
+    // web.site = "开源产品,www.hdcms.com";
+    // console.log(web.site);
+
+    // ----------------------------
+    // 访问器优先级高于定义的属性
+    // 定义的name会丢失
+    // Symbol防止user.data.name = "changed";
+    // ----------------------------
+    // const DATA = Symbol();
+    // let user = {
+    //   // name: "后盾人",
+    //   // data: { name },
+    //   [DATA]: { name },
+    //   age: 10,
+    //   get name() {
+    //     return `${this[DATA].name}-abc`;
+    //   },
+    //   set name(value) {
+    //     // console.log(`${value}-后盾人`);
+    //     this[DATA].name = `${value}-后盾人`;
+    //   },
+    // };
+
+    // user.name = "hdcms.com";
+    // user.data.name = "changed";
+    // console.log(user.name);
   </script>
 </html>
