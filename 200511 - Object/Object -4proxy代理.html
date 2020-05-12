@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Object</title>
+    <style></style>
+  </head>
+  <body>
+    <input type="text" v-model="title"></input>
+    <input type="text" v-model="title"></input>
+    <div v-bind="title">这里也会发生更新</div>
+  </body>
+  <script>
+    // let hd = { name: "后盾人" };
+
+    // let proxy = new Proxy(hd, {
+    //   get(obj, key) {
+    //     // console.log(obj);
+    //     // console.log(key);
+    //     return obj[key];
+    //   },
+    //   set(obj, key, value) {
+    //     // console.log(value);
+    //     obj[key] = value;
+    //   },
+    // });
+    // // console.log(proxy.name);
+    // proxy.name = "向军";
+
+    // let lessons = [
+    //   { title: "媒体查询响应式布局", catagory: "css" },
+    //   { title: "FLEX 弹性盒模型", catagory: "css" },
+    //   { title: "MYSQL多表查询随意操作", catagory: "mysql" },
+    // ];
+
+    // let proxy = new Proxy(lessons, {
+    //   get(array, index) {
+    //     const title = array[index].title;
+    //     console.log(title);
+    //     const len = 5;
+    //     array[index].title =
+    //       title.length > len ? title.substr(0, len) + ".".repeat(3) : title;
+    //     return array[index];
+    //   },
+    // });
+    // console.log(proxy[1]);
+
+    // ------------------------
+    // 双向数据绑定
+    // ------------------------
+      
+    function View() {
+      let proxy = new Proxy(
+        {},
+        {
+          get(obj, key) {},
+          set(obj, key, value) {
+            console.log(value);
+            console.log(key);
+            document.querySelectorAll(`[v-model="${key}"]`).forEach(item =>{
+              item.value = value
+            })
+            document.querySelectorAll(`[v-bind="${key}"]`).forEach(item => {
+              item.innerHTML = value
+            })
+          },
+        }
+      );
+      this.init = function () {
+        const els = document.querySelectorAll("input");
+        els.forEach((item) => {
+          item.addEventListener("keyup", function () {
+            // console.log(1);
+            proxy[this.getAttribute("v-model")] = this.value;
+            // console.log(proxy[this.getAttribute("v-model")]);
+            // 相当于{}.title=value => {title:value}
+          });
+        });
+      };
+    }
+    let a = new View();
+    a.init();
+  </script>
+</html>
