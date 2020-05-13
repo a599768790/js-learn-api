@@ -116,10 +116,13 @@
     // console.log(index);
 
     // 排序
-    // let arr = [1, 2, 4, 5, 55, 67, 7, 8];
-    // // arr = arr.sort((a, b) => a - b); //从小到大
-    // arr = arr.sort((a, b) => b - a); //从大到小
-    // console.log(arr);
+    let arr = [1, 2, 4, 5, 55, 67, 7, 8];
+    // arr = arr.sort((a, b) => a - b); //从小到大
+    arr = arr.sort((a, b) => {
+      console.log(a, b);
+      return b - a;
+    }); //从大到小
+    console.log(arr);
 
     // 排序实现原理
     // let arr = [1, 2, 4, 5, 55, 67, 7, 8];

@@ -1,0 +1,180 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Class-3</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    // 构造函数的继承
+    // function User(name) {
+    //   this.name = name;
+    // }
+
+    // function Admin(name) {
+    //   User.call(this, name);
+    // }
+
+    // Admin.prototype = Object.create(User.prototype);
+    // Admin.prototype.show = function () {
+    //   console.log("这是Admin原型上的方法");
+    // };
+    // let hd = new Admin("后盾人...");
+    // console.log(hd);
+    // console.dir(Admin);
+
+    // ----------------------
+    // super进行方法继承
+    // ----------------------
+    // class User {
+    //   // constructor(name) {
+    //   //   this.name = name;
+    //   // }
+    //   show() {
+    //     console.log("这是User原型方法");
+    //   }
+    // }
+    // class Admin extends User {
+    //   constructor(name) {
+    //     // super(name);
+    //     super();
+    //     this.name = name;
+    //   }
+    //   change() {
+    //     console.log("这是Admin原型方法");
+    //   }
+    // }
+    // let hd = new Admin("后盾人");
+    // // 方法都在Admin.prototype上
+    // // hd.__proto__ === Admin.prototype //true
+    // // Admin.prototype.__proto__ === User.prototype // true
+    // console.log(hd);
+
+    // -----------------------
+    // super原理
+    // -----------------------
+
+    // let hd = {
+    //   name: "hd.name",
+    //   show() {
+    //     console.log(this.name);
+    //   },
+    // };
+    // let xj = {
+    //   __proto__: hd,
+    //   name: "xj.name",
+    //   show() {
+    //     this.__proto__.show.call(this);
+    //   },
+    // };
+    // xj.show();
+
+    // 实现
+    //
+    class User {
+      show() {
+        console.log("user show");
+      }
+      hd() {
+        console.log(this.name);
+      }
+      sum() {
+        // this指的是调用的对象
+        return this.data.reduce((t, c) => t + c.price, 0);
+      }
+    }
+    class Admin extends User {
+      constructor(name, data) {
+        super();
+        this.name = name;
+        this.data = data;
+      }
+      show() {
+        super.show(); // this.__proto__.show.call(this);
+        console.log("admin show");
+      }
+      // hd() {
+      //   // this.__proto__.show.call(this);
+      //   super.hd();
+      // }
+      info() {
+        return {
+          totalPrice: super.sum(),
+          data: this.data,
+        };
+      }
+    }
+    let lessons = [
+      { name: "js", price: 100 },
+      { name: "mysql", price: 212 },
+      { name: "vue.js", price: 98 },
+    ];
+    let hd = new Admin("后盾人2", lessons);
+    hd.show();
+    hd.hd();
+    console.log(hd.info());
+
+    // -------------------------
+    // super可以解决多级攀升的问题
+    // 调用方法原理
+    // ----------------------------
+    // let common = {
+    //   show() {
+    //     console.log("common.show" + this.name);
+    //   },
+    // };
+
+    // let hd = {
+    //   __proto__: common,
+    //   name: "hd.name",
+    //   show() {
+    //     super.show();
+    //     // console.log(this.name);
+    //   },
+    // };
+    // let xj = {
+    //   __proto__: hd,
+    //   name: "xj.name",
+    //   show() {
+    //     super.show();
+    //     // this.__proto__.show.call(this);
+    //   },
+    // };
+    // xj.show();
+
+    // ----------------------------
+    // super调用属性原理
+    // ----------------------------
+    // class User {
+    //   constructor(name, age) {
+    //     this.name = name;
+    //     this.age = age;
+    //   }
+    // }
+    // class Admin extends User {
+    //   constructor(...args) {
+    //     super(...args);
+    //     this.name = "houdunren.com";
+    //   }
+    // }
+    // let hd = new Admin("后盾人", 19);
+    // console.log(hd);
+
+    // ----------------------------
+    // 上述原理分析
+    // ----------------------------
+    // function User(name, age) {
+    //   this.name = name;
+    //   this.age = age;
+    // }
+    // function Admin(...args) {
+    //   User.call(this, ...args);
+    //   this.name = "houdunren.com"; //先执行，子覆盖父// 所以写在下面
+    // }
+    // Admin.prototype = Object.create(User.prototype);
+    // let hd = new Admin("后盾人", 18);
+    // console.log(hd);
+
+    //
+  </script>
+</html>
