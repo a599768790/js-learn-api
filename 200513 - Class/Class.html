@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Class</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    // ----------------------------
+    // 类基础
+    // ----------------------------
+    // class User {
+    //   constructor(name) {
+    //     this.name = name;
+    //   }
+    //   getName() {
+    //     return this.name;
+    //   }
+    //   show() {}
+    // }
+    // let hd = new User("后盾人a");
+    // console.log(hd.getName());
+    // hd.__proto__ === User.prototype; // true
+    // User.prototype.constructor === User; // true
+    // hd.__proto__.constructor === User; // true
+
+    // hd、xj对象实例出来的属性，独有，不会影响
+    // 原型User.prototype上的方法共有
+    // class User {
+    //   site = "后盾人";
+    //   constructor(name) {
+    //     this.name = name;
+    //   }
+    //   changesite(value) {
+    //     this.site = value;
+    //   }
+    //   show() {
+    //     return `${this.site}:${this.name}`;
+    //   }
+    // }
+    // let hd = new User("后盾人");
+    // hd.changesite("houdunren.com");
+    // console.log(hd.show());
+    // let xj = new User("向军");
+    // console.log(xj.show());
+
+    // ------------------------
+    // 构造函数的属性为静态方法 static
+    // ------------------------
+
+    // function Web(url) {
+    //   this.url = url;
+    // }
+    // Web.url = "Web的静态属性";
+    // Web.prototype.show = function () {
+    //   console.log("!11");
+    // };
+    // let hd = new Web("hd对象的属性");
+
+    // -------------------------
+    // 有static和没有static的区别
+    // -------------------------
+    // class Request {
+    //   host = "https://www.houdunren.com";
+    //   constructor(name) {
+    //     this.name = name;
+    //   }
+    // }
+    // let hd = new Request("后盾人");
+    // console.dir(hd);
+
+    // xj.__proto__ === Request.prototype
+    // 静态属性在Request.prototype.constructor里面
+    // api方法在Request2.prototype上
+    class Request2 {
+      static host = "https://www.houdunren.com";
+      api(url) {
+        return Request2.host + `/${url}`;
+      }
+    }
+    let xj = new Request2();
+    // console.dir(xj);
+    console.log(xj.api("article"));
+  </script>
+</html>
