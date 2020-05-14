@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Class-4</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    // 构造函数继承Arr的原型，可以使用Arr原型上的方法
+    // function Arr(...args) {
+    //   args.forEach((item) => {
+    //     this.push(item);
+    //   });
+    //   this.first = function () {
+    //     return this[0];
+    //   };
+    // }
+    // Arr.prototype = Object.create(Array.prototype);
+    // let hd = new Arr(1, 2, 34, 6, 7, 9);
+    // // console.log(hd);
+    // console.log(hd.first());
+
+    // 换成类来实现
+    // class Arr extends Array {
+    //   first() {
+    //     return this[0];
+    //   }
+    //   max() {
+    //     // return this.sort((a, b) => b - a)[0];
+    //     return this.sort((a, b) => {
+    //       return b - a;
+    //     })[0];
+    //   }
+    //   add(item) {
+    //     this.push(item);
+    //   }
+    // }
+    // let hd = new Arr(1, 2, 34, 6, 7, 9);
+    // console.log(hd.first());
+    // console.log(hd.max());
+    // hd.add("abc");
+    // console.log(hd);
+
+    // 继承不同对象增强
+
+    let Tool = {
+      max(key) {
+        return this.lessons.sort((a, b) => b[key] - a[key])[0];
+      },
+    };
+    class Lesson {
+      constructor(lessons) {
+        // 对象实例出来有的属性(hd)
+        this.lessons = lessons;
+      }
+    }
+    const data = [
+      { name: "js", price: 100 },
+      { name: "mysql", price: 212 },
+      { name: "vue", price: 98 },
+    ];
+    Object.assign(Lesson.prototype, Tool);
+    console.dir(Lesson);
+    let hd = new Lesson(data);
+    console.log(hd.max("price"));
+  </script>
+</html>

@@ -57,5 +57,14 @@
     // 检索是否包含某个字符串
     // let hd = "houdunren.com";
     // console.log(hd.includes("o"));
+
+    // 字符串里每个字母出现的次数
+    let hd = "adfdfdfashgthths";
+    let res = {};
+    [...hd].forEach((key, index) => {
+      // console.log(key, index);
+      res[key] ? res[key]++ : (res[key] = 1);
+    });
+    console.log(res);
   </script>
 </html>

@@ -48,17 +48,17 @@
     // 构造函数的属性为静态方法 static
     // ------------------------
 
-    function Web(url) {
-      this.url = url;
-    }
-    Web.url = "Web的静态属性";
-    Web.show = function () {
-      console.log("Web里面静态方法");
-    };
-    Web.prototype.show = function () {
-      console.log("Web.prototype上的方法");
-    };
-    let hd = new Web("hd对象的属性");
+    // function Web(url) {
+    //   this.url = url;
+    // }
+    // Web.url = "Web的静态属性";
+    // Web.show = function () {
+    //   console.log("Web里面静态方法");
+    // };
+    // Web.prototype.show = function () {
+    //   console.log("Web.prototype上的方法");
+    // };
+    // let hd = new Web("hd对象的属性");
 
     // -------------------------
     // 有static和没有static的区别
@@ -75,28 +75,28 @@
     // xj.__proto__ === Request.prototype
     // 静态属性在Request2.prototype.constructor里面
     // api方法在Request2.prototype上
-    // class Request2 {
-    //   constructor(name) {
-    //     this.name = name;
-    //   }
-    //   static host = "https://www.houdunren.com";
-    //   api(url) {
-    //     return Request2.host + `/${url}`;
-    //   }
-    //   show() {
-    //     console.log(
-    //       `Request2类的原型方法，
-    //       在Request2.prototype.constructor里面
-    //       用obj.方法名调用`
-    //     );
-    //   }
-    //   static show() {
-    //     console.log("Request2类的静态方法");
-    //   }
-    // }
-    // // // Request2.__proto__.show("Request2类的静态方法"); 同样效果
-    // let xj = new Request2();
-    // console.dir(xj);
-    // console.log(xj.api("article"));
+    class Request2 {
+      constructor(name) {
+        this.name = name;
+      }
+      static host = "https://www.houdunren.com";
+      api(url) {
+        return Request2.host + `/${url}`;
+      }
+      show() {
+        console.log(
+          `Request2类的原型方法，
+          在Request2.prototype.constructor里面
+          用obj.方法名调用`
+        );
+      }
+      static show() {
+        console.log("Request2类的静态方法");
+      }
+    }
+    // // Request2.__proto__.show("Request2类的静态方法"); 同样效果
+    let xj = new Request2("后盾人");
+    console.dir(xj);
+    console.log(xj.api("article"));
   </script>
 </html>
