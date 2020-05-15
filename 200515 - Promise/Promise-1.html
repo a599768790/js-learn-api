@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Promise - 1</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    // 同步任务优先级 > 微任务
+    // new Promise((resolve, reject) => {
+    //   // resolve("成功通知");
+    //   reject("失败通知");
+    //   console.log("同步任务优先于微任务执行");
+    // })
+    //   .then((data) => {
+    //     console.log(`${data}---开始执行微任务`);
+    //   })
+    //   .catch((data) => {
+    //     console.log(`${data}---开始执行微任务`);
+    //   });
+    // console.log("同步任务优先于微任务执行2");
+
+    // -------------------------------
+    // 同步任务 > 微任务 > 宏任务
+    // -------------------------------
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve("成功通知");
+    //     // reject("失败通知");
+    //     console.log("微任务的执行前提是setTimeout先要执行到");
+    //   }, 0);
+    // })
+    //   .then((data) => {
+    //     console.log(`${data}---开始执行微任务`);
+    //   })
+    //   .catch((data) => {
+    //     console.log(`${data}---开始执行微任务`);
+    //   });
+    // console.log("同步任务优先于微任务执行");
+
+    // p2都是执行then()
+    let p1 = new Promise((resolve, reject) => {
+      // resolve("成功通知");
+      reject("失败通知");
+    });
+    let p2 = p1
+      .then((value) => {
+        console.log(value);
+        // reject("第二次");
+      })
+      .catch((err) => {
+        console.log("error" + err);
+      })
+      .then((a) => {
+        console.log("成功");
+      })
+      .catch((b) => {
+        conole.log("b");
+      });
+  </script>
+</html>
