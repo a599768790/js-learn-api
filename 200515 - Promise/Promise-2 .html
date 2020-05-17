@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Promise - 1</title>
+    <style></style>
+  </head>
+  <body></body>
+  <script>
+    // ----------------------------------------
+    //嵌套返回promise,一个then处理一个Promise
+    // return "abc"或者对象和return new Promise 然后执行 resolve是一样的
+    // ----------------------------------------
+    // let p1 = new Promise((resolve, reject) => {
+    //   resolve("success");
+    //   // reject("fail1");
+    // })
+    //   .then((value) => {
+    //     console.log(value);
+
+    //     // return "houdunren";
+    //     // 两者一样效果
+    //     return new Promise((resolve, reject) => {
+    //       // resolve("success2");
+    //       reject("fail2");
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     return new Promise((resolve, reject) => {
+    //       reject("fail2");
+    //     });
+    //   })
+    //   .then(
+    //     (value) => {
+    //       console.log(value);
+    //     },
+    //     (reason) => {
+    //       console.log("reason3" + reason);
+    //       // reason和catch都为错误，执行一个
+    //       return new Promise((resolve, reject) => {
+    //         reject("失败");
+    //       });
+    //     }
+    //   )
+    //   .catch((err) => {
+    //     console.log("catch3" + err);
+    //   });
+
+    // 一个promise后执行一个then
+    // let p1 = new Promise((resolve, reject) => {
+    //   resolve("success1");
+    //   // reject("fail1");
+    // })
+    //   .then(
+    //     (value) => {
+    //       console.log("成功" + value);
+    //       return new Promise((resolve, reject) => {
+    //         reject("fail2");
+    //       }).then(null, (r) => {
+    //         console.log(r);
+    //         return new Promise((resolve, reject) => {
+    //           reject("fail3");
+    //         });
+    //       });
+    //     },
+    //     (reason) => {
+    //       console.log(reason);
+    //     }
+    //   )
+    //   .then(
+    //     (value) => {},
+    //     (reason) => {
+    //       console.log(reason);
+    //     }
+    //   );
+
+    // let p1 = new Promise((resolve, reject) => {
+    //   // resolve("成功通知");
+    //   reject("失败通知");
+    // });
+    // let p2 = p1
+    //   .then((value) => {
+    //     console.log(value);
+    //     // reject("第二次");
+    //   })
+    //   .catch((err) => {
+    //     console.log("error" + err);
+    //   })
+    //   .then((a) => {
+    //     console.log("成功");
+    //   })
+    //   .catch((b) => {
+    //     conole.log("b");
+    //   });
+  </script>
+</html>

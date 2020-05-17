@@ -37,25 +37,5 @@
     //     console.log(`${data}---开始执行微任务`);
     //   });
     // console.log("同步任务优先于微任务执行");
-
-    // p2都是执行then()
-    let p1 = new Promise((resolve, reject) => {
-      // resolve("成功通知");
-      reject("失败通知");
-    });
-    let p2 = p1
-      .then((value) => {
-        console.log(value);
-        // reject("第二次");
-      })
-      .catch((err) => {
-        console.log("error" + err);
-      })
-      .then((a) => {
-        console.log("成功");
-      })
-      .catch((b) => {
-        conole.log("b");
-      });
   </script>
 </html>

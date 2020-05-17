@@ -103,23 +103,23 @@
     // 定义的name会丢失
     // Symbol防止user.data.name = "changed";
     // ----------------------------
-    // const DATA = Symbol();
-    // let user = {
-    //   // name: "后盾人",
-    //   // data: { name },
-    //   [DATA]: { name },
-    //   age: 10,
-    //   get name() {
-    //     return `${this[DATA].name}-abc`;
-    //   },
-    //   set name(value) {
-    //     // console.log(`${value}-后盾人`);
-    //     this[DATA].name = `${value}-后盾人`;
-    //   },
-    // };
+    const DATA = Symbol();
+    let user = {
+      // name: "后盾人",
+      // data: { name },
+      data: { name },
+      age: 10,
+      get name() {
+        return `${this.data.name}-abc`;
+      },
+      set name(value) {
+        // console.log(`${value}-后盾人`);
+        this.data.name = `${value}-后盾人`;
+      },
+    };
 
-    // user.name = "hdcms.com";
+    user.name = "hdcms.com";
     // user.data.name = "changed";
-    // console.log(user.name);
+    console.log(user.name);
   </script>
 </html>
