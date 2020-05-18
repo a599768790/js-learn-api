@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Promise - ajax</title>
+    <style></style>
+  </head>
+  <body></body>
+  <!-- <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+  <script src="ajax.js"></script> -->
+  <script>
+    // ------------------------------------
+    // 封装ajax
+    // ------------------------------------
+    function ajax(url) {
+      return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.send();
+        xhr.onload = function () {
+          if (this.status == 200) {
+            resolve(JSON.parse(this.response));
+          } else {
+            reject("加载失败");
+          }
+        };
+        xhr.onerror = function () {
+          reject(this);
+        };
+      });
+    }
+    // let url = "http://route.showapi.com/109-35";
+    // let model = {
+    //   showapi_timestamp: formatterDateTime(),
+    //   showapi_appid: "93498", //这里需要改成自己的appid
+    //   showapi_sign: "c64d532033b245bf9fe440d6a44336ba", //这里需要改成自己的应用的密钥secret
+    //   channelId: "",
+    //   channelName: "",
+    //   title: "足球",
+    //   page: "1",
+    //   needContent: "0",
+    //   needHtml: "0",
+    //   needAllList: "0",
+    //   maxResult: "20",
+    //   id: "",
+    // };
+
+    // 调用
+    // ajax(url)
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
+    //
+    async function get(name) {
+      let url = `http://route.showapi.com/109-35?${name}`;
+      let res = await ajax(url);
+      return res;
+      // let lessons = await ajax("第二个请求")
+    }
+
+    get().then((res) => {
+      console.log(res);
+    });
+
+    // ------------------------------------------------
+    // ------------------------------------------------
+    // function ajax(serviceName, model) {
+    //   return new Promise((resolve, reject) => {
+    //     $.ajax({
+    //       // async: undefined == async ? false : async,
+    //       type: undefined == dataType ? "Post" : dataType,
+    //       url: serviceName,
+    //       data: model,
+    //       dataType: undefined == dataType ? "json" : dataType,
+    //       cache: false,
+    //       success: function (res) {
+    //         if (this.status == 200) {
+    //           resolve(res);
+    //           //dataSource = msg.Body.length <= 0 ? "" : $.parseJSON(msg.Body);
+    //           // dataSource = msg.Body;
+    //           // successFN == null ? "" : successFN(msg.Body);
+    //         } else {
+    //           reject(res.statusText);
+    //         }
+    //       },
+    //       error: function (e) {
+    //         reject(e);
+    //       },
+    //     });
+    //   });
+    // }
+
+    // function formatterDateTime() {
+    //   var date = new Date();
+    //   var month = date.getMonth() + 1;
+    //   var datetime =
+    //     date.getFullYear() +
+    //     "" + // "年"
+    //     (month >= 10 ? month : "0" + month) +
+    //     "" + // "月"
+    //     (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) +
+    //     "" +
+    //     (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) +
+    //     "" +
+    //     (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) +
+    //     "" +
+    //     (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds());
+    //   return datetime;
+    // }
+  </script>
+</html>
