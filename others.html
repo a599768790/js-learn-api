@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>js</title>
+  </head>
+
+  <body>
+    <!-- <button>houdunren.com</button>
+  <button>hdcms.com</button> -->
+  </body>
+  <script>
+    // 属于闭包概念
+    // run是一个闭包,所以可以访问外部web
+    // let web = "houdunren.com";
+    // function show() {
+    //   var web = "后盾人";
+    //   console.log(web);
+    //   function run() {
+    //     // let web = "run --- 后盾人";
+    //     console.log(web + "run");
+    //   }
+    // }
+    // show();
+    // console.log(web);
+
+    // // 结果一致
+    // let web = "houdunren.com";
+    // function show() {
+    //   var web = "后盾人";
+    //   console.log(web);
+    //   return function run() {
+    //     // let web = "run --- 后盾人";
+    //     console.log(web + "run");
+    //   };
+    // }
+    // show()();
+    // console.log(web);
+
+    // ---------------------
+    // 属于数组模块
+    // inputs的原型不是array而是NodeList所以不能使用map
+    // let inputs = document.querySelectorAll("input");
+    // // console.log(inputs);
+    // inputs.forEach((item) => {
+    //   item.addEventListener("keyup", function () {
+    //     console.log(document.querySelector("[name='password']").value);
+    //   });
+    // });
+
+    // 属于函数
+    let arr = [12, 3, 45, 56, 7, 3, 112];
+    console.log(Math.max(...arr));
+    // console.log(Math.max.apply(null, arr));
+    // console.log(Math.max.call(null, ...arr));
+  </script>
+</html>
