@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Set</title>
+    <style></style>
+  </head>
+  <body>
+    <div name="后盾人">houdunren.com</div>
+    <div name="开源内容管理系统">hdcms.com</div>
+  </body>
+  <script>
+    // --------------------------------
+    // Map类型，函数对象也可以作为键名
+    // --------------------------------
+    // let map = new Map();
+    // map.set("name", "后蹲人");
+    // map.set(function () {}, "hdcms");
+    // map.set({}, "houdunren");
+    // console.log(map);
+
+    // --------------------------------
+    // Map类型，函数对象也可以作为键名
+    // --------------------------------
+    // let map = new Map([
+    //   ["hdcms", "开源系统"],
+    //   ["houdunren", "在线教程"],
+    //   [function () {}, "这是函数"],
+    // ]);
+    // // console.log(map);
+    // // console.log(map.keys());
+    // // console.log(map.get("hdcms"));
+    // // // console.log(map.delete("hdcms"));
+    // // console.log(map.has("hdcms"));
+    // // console.log(map);
+    // map.forEach((value, key) => {
+    //   console.log(value, key);
+    // });
+
+    // let newArr = [...map].filter(([key, value]) => {
+    //   // console.log(item); // 是一个数组，而不是对象
+    //   console.log(key, value);
+    //   // return item[1].includes("开源系统");
+    // });
+    // console.log(newArr);
+    // let edu = new Map(newArr);
+    // console.log(edu.values());
+    // console.log(edu.keys());
+    // console.log(...edu.values());
+    // console.log(...edu.keys());
+
+    //----------------------
+    // dom
+    //----------------------
+    // let map = new Map();
+    // let divs = document.querySelectorAll("div");
+    // divs.forEach((elem) => {
+    //   map.set(elem, {
+    //     content: elem.getAttribute("name"),
+    //   });
+    // });
+    // console.log(map);
+    // //----------------------
+    // // 遍历时set的第一个值在后面
+    // //----------------------
+    // map.forEach((value, elem) => {
+    //   console.log(value, elem);
+    //   elem.addEventListener("click", () => {
+    //     alert(value.content);
+    //   });
+    // });
+  </script>
+</html>

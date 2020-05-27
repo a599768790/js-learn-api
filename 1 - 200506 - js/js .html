@@ -19,9 +19,21 @@
         // let web = "run --- 后盾人";
         console.log(web + "run");
       }
-      run();
     }
     show();
+    console.log(web);
+
+    // 结果一致
+    let web = "houdunren.com";
+    function show() {
+      var web = "后盾人";
+      console.log(web);
+      return function run() {
+        // let web = "run --- 后盾人";
+        console.log(web + "run");
+      };
+    }
+    show()();
     console.log(web);
 
     // js基础类型有6种

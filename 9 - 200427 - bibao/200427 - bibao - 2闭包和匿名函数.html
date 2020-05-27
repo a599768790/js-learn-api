@@ -4,36 +4,13 @@
     <title>闭包</title>
   </head>
   <body>
-    <button>按钮1</button>
-    <button>按钮2</button>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
   </body>
   <script>
-    // ------------------------------------------------------
-    // 闭包概念：内部函数可以访问外部函数的变量
-    // function hd() {
-    //   let n = 1;
-    //   return function show() {
-    //     console.log(++n);
-    //   };
-    // }
-    // let a = hd();
-
-    // // a 等价于 show(){console.log(++n);}  // 需要在调用才可以
-    // a();
-    // a();
-
-    // -----------------------------------------------------
-    // 要么return然后init()(); 不加return函数，自己执行一次，然后init()
-    // 等价于👆面
-    // function init() {
-    //   var name = "Chrome"; //创建局部变量name和局部函数alertName
-    //   function alertName() {
-    //     console.log(name); //使用了外部函数声明的变量，内部函数可以访问外部函数的变量
-    //   }
-    //   alertName();
-    // }
-    // init();
-
     // ------------------------------------------------------
     // 闭包和匿名函数
     // function parent(x){
@@ -47,6 +24,17 @@
 
     // console.log(addFun1(2)); //6
     // console.log(addFun2(2));  //11
+
+    // ------------------------
+    // 闭包点击元素的序号和元素文本值
+    // ------------------------
+    var divs = document.querySelectorAll("div");
+    divs.forEach((item, index) => {
+      item.addEventListener("click", (el) => {
+        console.log(index);
+        console.log(el.target.innerHTML);
+      });
+    });
 
     // ----------------------------------------------------------
     // 闭包和匿名函数案例1

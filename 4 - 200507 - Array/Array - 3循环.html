@@ -123,20 +123,19 @@
     // --------------------------------
     // 浅拷贝
     // --------------------------------
-    // let lessons = [
-    //   { title: "媒体查询响应式布局", catagory: "css" },
-    //   { title: "FLEX 弹性盒模型", catagory: "css" },
-    //   { title: "MYSQL多表查询随意操作", catagory: "mysql" },
-    // ];
-    // // let hd = lessons.map(function (item) {
-    // //   return {
-    // //     title: item.title,
-    // //     catagory: item.catagory,
-    // //     click: 100,
-    // //   };
-    // // });
-    // // console.table(hd);
-    // console.table(hd);
-    // console.table(lessons);
+    let lessons = [
+      { title: "媒体查询响应式布局", catagory: "css" },
+      { title: "FLEX 弹性盒模型", catagory: "css" },
+      { title: "MYSQL多表查询随意操作", catagory: "mysql" },
+    ];
+    let hd = lessons.map(function (item) {
+      return {
+        title: item.title,
+        catagory: item.catagory,
+        click: 100,
+      };
+    });
+    console.table(hd);
+    console.table(lessons);
   </script>
 </html>

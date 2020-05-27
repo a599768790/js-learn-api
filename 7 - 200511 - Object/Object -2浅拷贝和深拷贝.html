@@ -54,31 +54,74 @@
     //   console.log(value);
     // }
 
+    // --------------------------------------------------------------------------------------------------------------------
+    // 浅拷贝1:浅拷贝只是简单的复制，对对象里面的对象属性和数组属性只是复制了地址，并没有创建新的相同对象或者数组
+    // key的值如果是引用类型，则是共用一个内存地址
+    // --------------------------------------------------------------------------------------------------------------------
+    // var obj1 = {
+    //   age: 10,
+    //   sex: "男",
+    //   car: ["奔驰", "宝马", "特斯拉", "奥拓"],
+    // };
+    // //另一个对象
+    // var obj2 = {};
+    // // 只是把就对象的key给新对象
+    // // 对应的值还是指向一个地址
+    // for (const key in obj1) {
+    //   obj2[key] = obj1[key];
+    // }
+    // console.dir(obj2); //开始的时候这个对象是空对象
+    // console.dir(obj1); //有属性
+
+    // obj1.car.push("奥迪");
+    // obj1.age = 100;
+    // console.log(obj1);
+    // console.log(obj2);
+    // 直接赋值也是浅拷贝
+    // // var obj3 = obj1;
+    // // console.dir(obj3);
+
+    // --------------------------------------------------------------------------------------------------------------------
+    // 快速深拷贝 Object.assign:归根到底还是要看拷贝值的数据类型
+    // --------------------------------------------------------------------------------------------------------------------
+    // let hd = {
+    //   name: "后盾人",
+    //   url: "houdunren.com",
+    //   lessons: ["js", "go", "myql"],
+    // };
+    // let obj = Object.assign({ a: "abc" }, hd);
+    // obj.lessons.push("php");
+    // console.log(obj);
+    // console.log(hd);
+
     // --------------------------------
-    // for in进行浅拷贝
+    // 快速深拷贝 ...语法
+    // let hd = { name: "后盾人", url: "houdunren.com" };
+    // let obj = { a: "abc", ...hd };
+    // console.log(obj);
+    // console.log(hd);
+
+    // --------------------------------
+    // 把一个对象的属性和方法一个个找出来，在另一个对象中开辟对应的空间，一个个存储到另一个对象中
+    // for in进行深拷贝
     // 新对象需要自定义
     // --------------------------------
-    // let hd = { name: "后盾人", url: "houdunren.com" };
+    // let hd = {
+    //   name: "后盾人",
+    //   url: "houdunren.com",
+    //   cars: ["奔驰", "宝马", "特斯拉", "奥拓"],
+    // };
     // let obj = {};
     // for (const key in hd) {
     //   obj[`${key}-key`] = hd[key] + "-abc";
+    //   //obj[key] = hd[key];
     // }
-    // console.log(hd);
-    // console.log(obj);
-    // obj.name = "yahoo";
-    // console.log(obj);
+    // // console.log(hd);
+    // // console.log(obj);
 
-    // --------------------------------
-    // 快速浅拷贝 Object.assign
-    // let hd = { name: "后盾人", url: "houdunren.com" };
-    // let obj = Object.assign({ a: "abc" }, hd);
+    // hd.cars.push("劳斯莱斯");
     // console.log(obj);
-    // --------------------------------
-    // 快速浅拷贝 ...语法
-    //   let hd = { name: "后盾人", url: "houdunren.com" };
-    //   let obj = { a: "abc", ...hd };
-    //   console.log(obj);
-    //
+    // console.log(hd);
 
     // ---------------------------
     // 深拷贝只有多层对象

@@ -44,24 +44,24 @@
     // ---------------------------------
     // set案例搜索关键词
     // ---------------------------------
-    // let obj = {
-    //   data: new Set(),
-    //   keyword(word) {
-    //     this.data.add(word);
-    //   },
-    //   show() {
-    //     let ul = document.querySelector("ul");
-    //     ul.innerHTML = "";
-    //     this.data.forEach(function (value) {
-    //       ul.innerHTML += `<li>${value}</li>`;
-    //     });
-    //   },
-    // };
-    // let input = document.querySelector("input");
-    // input.addEventListener("blur", function () {
-    //   obj.keyword(this.value);
-    //   obj.show();
-    // });
+    let obj = {
+      data: new Set(),
+      keyword(word) {
+        this.data.add(word);
+      },
+      show() {
+        let ul = document.querySelector("ul");
+        ul.innerHTML = "";
+        this.data.forEach(function (value) {
+          ul.innerHTML += `<li>${value}</li>`;
+        });
+      },
+    };
+    let input = document.querySelector("input");
+    input.addEventListener("blur", function () {
+      obj.keyword(this.value);
+      obj.show();
+    });
 
     // set处理并集、交集、差集
     // -----------------------
