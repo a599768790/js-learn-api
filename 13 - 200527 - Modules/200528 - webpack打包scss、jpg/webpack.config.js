@@ -25,7 +25,9 @@ module.exports = {
         use: [
           {
             loader: "file-loader",
-            options: {},
+            options: {
+              name: "img/[name].[hash:8].[ext]",
+            },
           },
         ],
       },
@@ -42,6 +44,16 @@ module.exports = {
             loader: "sass-loader", // 将 Sass 编译成 CSS
           },
         ],
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/, //排除这些
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["es2015"], //因为安装的是babel-preset-es2015，所以这里要匹配这个
+          },
+        },
       },
     ],
   },

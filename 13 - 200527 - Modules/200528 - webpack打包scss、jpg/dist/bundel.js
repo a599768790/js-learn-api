@@ -440,57 +440,70 @@ function toComment(sourceMap) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__info_js__ = __webpack_require__(4);
-const { add, mul } = __webpack_require__(3);
+
+
+var _info = __webpack_require__(3);
+
+var _require = __webpack_require__(4),
+    add = _require.add,
+    mul = _require.mul;
 
 console.log(add(20, 30));
 console.log(mul(20, 30));
 
+var date = ["hello", "world", "this", "is", "es6", "code"];
+(0, _info.GetText)(date);
 
-console.log(__WEBPACK_IMPORTED_MODULE_0__info_js__["c" /* name */]);
-console.log(__WEBPACK_IMPORTED_MODULE_0__info_js__["a" /* age */]);
-console.log(__WEBPACK_IMPORTED_MODULE_0__info_js__["b" /* height */]);
+// import { name, age, height } from "./info.js";
+// console.log(name);
+// console.log(age);
+// console.log(height);
 
 __webpack_require__(5);
 __webpack_require__(9);
 
-
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function add(num1, num2) {
-    return num1 + num2
-}
-
-function mul(num1, num2) {
-    return num1 * num2
-}
+"use strict";
 
 
-module.exports = {
-    add,mul
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.GetText = GetText;
+var name = exports.name = "why";
+var age = exports.age = 18;
+var height = exports.height = 1.88;
+
+function GetText(arr) {
+  arr.forEach(function (item) {
+    console.log(item + "--es6");
+  });
 }
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-const name = 'why';
-/* harmony export (immutable) */ __webpack_exports__["c"] = name;
-
-const age = 18;
-/* harmony export (immutable) */ __webpack_exports__["a"] = age;
-
-const height = 1.88;
-/* harmony export (immutable) */ __webpack_exports__["b"] = height;
 
 
+function add(num1, num2) {
+    return num1 + num2;
+}
+
+function mul(num1, num2) {
+    return num1 * num2;
+}
+
+module.exports = {
+    add: add, mul: mul
+};
 
 /***/ }),
 /* 5 */
@@ -578,7 +591,7 @@ module.exports = function (url, options) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "acf9aa3233d8cd681d3817d74409b836.jpg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "img/logo.acf9aa32.jpg");
 
 /***/ }),
 /* 9 */
