@@ -713,13 +713,17 @@ var date = ["hello", "world", "this", "is", "es6", "code"];
 
 __webpack_require__(18);
 __webpack_require__(22);
+console.log(_App2.default);
 
 new _vue2.default({
     el: '#app',
-    template: '<App/>',
-    components: {
-        App: _App2.default
+    render: function render(h) {
+        return h(_App2.default);
     }
+    // template: '<App/>',
+    // components: {
+    //     App
+    // }
 
 });
 
