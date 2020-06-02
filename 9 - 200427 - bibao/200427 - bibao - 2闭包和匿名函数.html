@@ -18,23 +18,95 @@
     //         return x + y;
     //     };
     // }
-
     // var addFun1 = parent(4);
     // var addFun2 = parent(9);
-
     // console.log(addFun1(2)); //6
     // console.log(addFun2(2));  //11
 
+    // ---------------------------------
+    // 闭包常见问题
+    // js 执行的时候首先会先执行主线程,异步相关的会存到异步队列里,当主线程执行完毕开始执行异步队列,
+    // ---------------------------------
+    // 结果为5个6
+    // for (var i = 1; i <= 5; i++) {
+    //   // 异步队列
+    //   setTimeout(function timer() {
+    //     console.log(i);
+    //   }, 1000);
+    // }
+    // 解决方法1：let
+    // for (let i = 1; i <= 5; i++) {
+    //   // 异步队列
+    //   setTimeout(function timer() {
+    //     console.log(i);
+    //   }, 1000);
+    // }
+    // 结果1，2，3，4，5
+    // 解决方法2：自动执行函数
+    // for (var i = 1; i <= 5; i++) {
+    //   (function (i) {
+    //     // 异步队列
+    //     setTimeout(function timer() {
+    //       console.log(i);
+    //     }, 1000);
+    //   })(i);
+    // }
+
     // ------------------------
     // 闭包点击元素的序号和元素文本值
+    // 闭包常见问题2
     // ------------------------
-    var divs = document.querySelectorAll("div");
-    divs.forEach((item, index) => {
-      item.addEventListener("click", (el) => {
-        console.log(index);
-        console.log(el.target.innerHTML);
-      });
-    });
+    // for和if没有作用域概念
+    // var divs = document.querySelectorAll("div");
+    // for (var j = 0; j < divs.length; j++) {
+    //   divs[j].onclick = function () {
+    //     console.log(j);
+    //   };
+    // }
+
+    // let可以解决块级作用域 // 每个i只属于当前{}里面，不受其他i的影响
+    // var divs = document.querySelectorAll("div");
+    // for (let j = 0; j < divs.length; j++) {
+    //   divs[j].onclick = function () {
+    //     console.log(j);
+    //   };
+    // }
+
+    // ----------------------------------------------------------------
+    // 辅助理解:函数才有作用域，外围name辅助，改变不了function里面的值
+    // ----------------------------------------------------------------
+    // var name = "why";
+    // function abc(name) {
+    //   console.log(name);
+    // }
+    // name = "kobe";
+    // abc("aaa");
+
+    // 利用函数独有的作用域，来解决打印一样的问题
+    // var divs = document.querySelectorAll("div");
+    // for (var j = 0; j < divs.length; j++) {
+    //   // name形参 // 立即执行函数
+    //   (function (name) {
+    //     divs[name].onclick = function () {
+    //       console.log(name);
+    //     };
+    //   })(j);
+    //   //把j传进函数里面，j是实参
+    // }
+
+    // --------------------------------------------
+    // 利用函数作用域和闭包解决
+    // --------------------------------------------
+    // var divs = document.querySelectorAll("div");
+    // for (var j = 0; j < divs.length; j++) {
+    //   // 立即执行函数传参
+    //   divs[j].onclick = (function (name) {
+    //     // 闭包可以保存数据，并访问上层作用域的变量
+    //     return function () {
+    //       console.log(name);
+    //     };
+    //   })(j); //实参 // 执行return 这个函数
+    // }
 
     // ----------------------------------------------------------
     // 闭包和匿名函数案例1
