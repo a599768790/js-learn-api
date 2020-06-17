@@ -10,24 +10,31 @@
   <button>houdunren.com</button> -->
   </body>
   <script>
-    // 通过calll改变构造函数的this，相当于把新对象压到构造函数里
-    // function User(name) {
-    //   this.name = name
+    // ---------------------------------------
+    // 用法1：改变函数体内部this的指向
+    // ---------------------------------------
+    function Fruits() { }
 
-    // }
-    // let lisi = new User("李四")
-    // console.log(lisi)
+    Fruits.prototype = {
+      color: "red",
+      say: function () {
+        console.log("My color is " + this.color);
+      }
+    };
 
-    // let hdcms = {
-    //   url: "hdcmd.com"
-    // }
-    // User.call(hdcms, "开源项目")
-    // console.log(hdcms);
+    var another = {
+      color: "yellow"
+    };
+    var apple = new Fruits();
+    apple.say();                //My color is red
+    apple.say.call(another);    //My color is yellow
+    apple.__proto__.say.call(another);   //My color is yellow
+    Fruits.prototype.say.call(another);  //My color is yellow
 
-    // call和apply和bind
+    // ---------------------------------------
+    // 用法1：改变函数体内部this的指向
     // apply第二个参数传递是数组,call传递单个值
-
-    // ----------------------------------------------------------
+    // ---------------------------------------
     // let lisi = {
     //   name: "李四"
     // }
@@ -40,41 +47,49 @@
     // }
 
     // User.call(lisi, "后盾人", "houdunren.com")
-    // User.apply(lisi, ["后盾人", "houdunren.com"])
+    // User.apply(wangwu, ["后盾人", "houdunren.com"])
 
-    // --------------------------------------------------------------
-    // 把对象传入call第一个函数,改变show函数的this的值，原来是show本身，现在是event.target
-    // function show() {
-    //   alert(this.innerHTML);
+    // --------------------------------------------------
+    // 如果说没有...语法，需要传入数组，可以使用apply
+    // 用法1：借用Math.max这个方法
+    // --------------------------------------------------
+    // let arr = [12, 3, 45, 56, 7, 3, 112];
+    // console.log(Math.max(...arr));
+    // console.log(Math.max.apply(null, arr)); //Math里没有用到this，所以不需要改变this指向    // console.log(Math.max.apply(Math, arr));
+    // console.log(Math.max.call(null, ...arr));
+
+
+
+    // --------------------------------------------------------
+    // 用法2：实现继承
+    // ⭐：通过call改变构造函数的this，相当于把新对象压到构造函数里
+    // --------------------------------------------------------
+    // function User(name) {
+    //   this.name = name
+
     // }
+    // // let lisi = new User("李四")
+    // // console.log(lisi)
 
-    // // elem一个参数可以不加括号
-    // let buttons = document.querySelectorAll("button");
-    // buttons.forEach((elem) => {
-    //   elem.addEventListener("click", (event) => {
-    //     show.call(event.target);
-    //   });
-    // });
+    // let hdcms = {
+    //   url: "hdcmd.com"
+    // }
+    // User.call(hdcms, "开源项目")
+    // console.log(hdcms); // {url: "hdcmd.com", name: "开源项目"}
 
-    // // 如果说没有...语法，需要传入数组，可以使用apply
-    // // 借用Math.max这个方法
-    let arr = [12, 3, 45, 56, 7, 3, 112];
-    console.log(Math.max(...arr));
-    console.log(Math.max.apply(null, arr)); //Math里没有用到this，所以不需要改变this指向    // console.log(Math.max.apply(Math, arr));
-    console.log(Math.max.call(null, ...arr));
-
-    // ---------------------------------------
-    // 案例:Request.call(this); // Request中的this指向变成了User,相当于借用Request这个构造函数的方法和属性
-    // ---------------------------------------
+    // -------------------------------------------------------
+    // 用法2：实现继承（call之前的为父类）继承Request构造函数
+    // -------------------------------------------------------
     // function User() {
     //   this.url = "user/lists";
     //   Request.call(this, 18); // Request中的this指向变成了User // 就是User可以使用Request里面的东西
     //   //console.log(this);//此时的this值得是User构造函数
     // }
-    // // function Article() {
-    // //   this.url = "article/lists";
-    // //   Request.call(this);
-    // // }
+    // function Article() {
+    //   this.url = "article/lists";
+    //   Request.call(this,18);
+    //   console.log(this)
+    // }
 
     // function Request(age) {
     //   this.get = function (params) {
@@ -101,5 +116,7 @@
     //   id: 1,
     //   cat: "js"
     // })
+
+
   </script>
 </html>

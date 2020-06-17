@@ -12,50 +12,88 @@
   </body>
   <script>
     // ------------------------------------------------------------------------------------------------------------
-    // 闭包概念：内部函数可以访问外部函数的变量
-    // 闭包的作用: 正常函数执行完毕后, 里面声明的变量被垃圾回收处理掉, 但是闭包可以让作用域里的 变量, 在函数执行完之后依旧保持没有被垃圾回收处理掉
-    //------------------------------------------------------------------------------------------------------------
-    // function hd() {
-    //   let n = 1;
-    //   return function show() {
-    //     console.log(++n);
-    //   };
-    // }
-    // let a = hd();
+      // 闭包概念：内部函数可以访问外部函数的变量
+      // 闭包的作用: 正常函数执行完毕后, 里面声明的变量被垃圾回收处理掉, 但是闭包可以让作用域里的 变量, 在函数执行完之后依旧保持没有被垃圾回收处理掉
+      //------------------------------------------------------------------------------------------------------------
+      // function hd() {
+      //   let n = 1;
+      //   return function () {
+      //     console.log(++n);
+      //   };
+      // }
+      // let a = hd();
 
-    // // a 等价于 show(){console.log(++n);}  // 需要在调用才可以
-    // a();
-    // a();
+      // // a 等价于 show(){console.log(++n);}  // 需要在调用才可以
+      // a();
+      // a();
 
-    // ------------------------------------------------------
-    // run是一个闭包,所以可以访问外部web
-    // ------------------------------------------------------
-    // let web = "houdunren.com";
-    // function show() {
-    //   var web = "后盾人";
-    //   console.log(web);
-    //   function run() {
-    //     // let web = "run --- 后盾人";
-    //     console.log(web + "run");
+      // ------------------------------------------------------
+      // run是一个闭包,所以可以访问外部web
+      // ------------------------------------------------------
+      // let web = "houdunren.com";
+      // function show() {
+      //   var web = "后盾人";
+      //   console.log(web);
+      //   function run() {
+      //     // let web = "run --- 后盾人";
+      //     console.log(web + "run");
+      //   }
+      //   run();
+      // }
+      // show();
+      // console.log(web);
+
+      // // ------------------------------------------------------
+      // // // 结果一致
+      // // ------------------------------------------------------
+      // let web = "houdunren.com";
+      // function show() {
+      //   var web = "后盾人";
+      //   console.log(web);
+      //   return function() {
+      //     // let web = "run --- 后盾人";
+      //     console.log(web + "run");
+      //   };
+
+      // }
+      // show()();  // 需要再执行一次
+      // console.log(web);
+      
+      // ---------------------------------------
+      // 防抖函数应用
+      // ---------------------------------------
+      function debounce(fn, wait) {
+        console.log("执行debounce")
+        var timeout = null;      //定义一个定时器
+        return function () {
+          if (timeout !== null)
+            clearTimeout(timeout);  //清除这个定时器
+          timeout = setTimeout(fn, wait);
+        }// 滚动过程return 好几个 function => 生成好几个timeout，所以只有最后一个才能生效
+      }
+
+      // 处理函数
+      function handle() {
+        console.log(Math.random());
+      }
+      // 滚动事件
+      window.addEventListener('click', debounce(handle, 1000));// 写法3
+    // debounce函数执行后返回一个匿名函数，类似于写法1
+    //function () {
+    // if (timeout !== null)
+    //   clearTimeout(timeout);  //清除这个定时器
+    // timeout = setTimeout(fn, wait);
     //   }
-    //   run();
-    // }
-    // show();
-    // console.log(web);
 
-    // ------------------------------------------------------
-    // // 结果一致
-    // ------------------------------------------------------
-    // let web = "houdunren.com";
-    // function show() {
-    //   var web = "后盾人";
-    //   console.log(web);
-    //   return function run() {
-    //     // let web = "run --- 后盾人";
-    //     console.log(web + "run");
-    //   };
-    // }
-    // show()();
-    // console.log(web);
+
+    //  window.addEventListener('click', function(){
+    //    console.log("写法1111"") // 常规写法
+    //  });
+
+    //  window.addEventListener('click', function handle() {
+    //     console.log("写法222") // 或者一个具名函数
+    //   });
+
+    //window.addEventListener('click', handle);// 写法3
   </script>
 </html>
